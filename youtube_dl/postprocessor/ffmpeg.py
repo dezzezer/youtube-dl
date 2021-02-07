@@ -774,6 +774,13 @@ class FFmpegSplitByTracksPP(FFmpegPostProcessor):
         track_title = chapter.get("title", "")
         track_title = encodeFilename(track_title)
         track_title = track_title.replace("/", "_")
+        track_title = track_title.replace(":", "_")
+        track_title = track_title.replace("?", "_")
+        track_title = track_title.replace("\\", "_")
+        track_title = track_title.replace("*", "_")
+        track_title = track_title.replace("'", "_")
+        track_title = track_title.replace("\"", "_")
+        track_title = track_title.replace("|", "_")
 
         prefix, sep, ext = information['filepath'].rpartition('.')
         track_name = "%s - %s%s%s" % (prefix, track_title, sep, ext)
